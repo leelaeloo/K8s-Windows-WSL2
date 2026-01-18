@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crash-demo
+  namespace: troubleshooting
+  labels:
+    app: crash-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crash-demo
+  template:
+    metadata:
+      labels:
+        app: crash-demo
+    spec:
+      containers:
+        - name: flask-app
+          image: python:3.9-slim
+          command: ["python", "-c"]
+          args:
+            - |
+              import os
+              print("Starting application...")
+              db_url = os.getenv('DATABASE_URL')
+              if not db_url:
+                  raise Exception("DATABASE_URL environment variable is required!")
+              print(f"Connected to: {db_url}")
+          ports:
+            - containerPort: 5000

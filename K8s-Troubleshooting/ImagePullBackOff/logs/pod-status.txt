@@ -1,0 +1,2 @@
+NAME                                   READY   STATUS             RESTARTS   AGE
+imagepull-error-demo-7f4c89546-9fdd5   0/1     ImagePullBackOff   0          12m

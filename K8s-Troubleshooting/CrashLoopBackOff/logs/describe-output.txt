@@ -1,0 +1,72 @@
+Name:             crash-demo-84f9684889-vfh46
+Namespace:        troubleshooting
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Sun, 02 Nov 2025 13:39:32 +0900
+Labels:           app=crash-demo
+                  pod-template-hash=84f9684889
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.43
+IPs:
+  IP:           10.244.0.43
+Controlled By:  ReplicaSet/crash-demo-84f9684889
+Containers:
+  flask-app:
+    Container ID:  docker://d76dd1daa77e063c386d009a1ffaf1375bfe9a3050be65ab0a93a4a272c237fb
+    Image:         python:3.9-slim
+    Image ID:      docker-pullable://python@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b
+    Port:          5000/TCP
+    Host Port:     0/TCP
+    Command:
+      python
+      -c
+    Args:
+      import os
+      print("Starting application...")
+      db_url = os.getenv('DATABASE_URL')
+      if not db_url:
+          raise Exception("DATABASE_URL environment variable is required!")
+      print(f"Connected to: {db_url}")
+      
+    State:          Waiting
+      Reason:       CrashLoopBackOff
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    1
+      Started:      Sun, 02 Nov 2025 13:45:14 +0900
+      Finished:     Sun, 02 Nov 2025 13:45:14 +0900
+    Ready:          False
+    Restart Count:  6
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-wck45 (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-wck45:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                     From               Message
+  ----     ------     ----                    ----               -------
+  Normal   Scheduled  9m38s                   default-scheduler  Successfully assigned troubleshooting/crash-demo-84f9684889-vfh46 to minikube
+  Normal   Pulling    9m38s                   kubelet            Pulling image "python:3.9-slim"
+  Normal   Pulled     9m31s                   kubelet            Successfully pulled image "python:3.9-slim" in 6.786s (6.786s including waiting). Image size: 121963404 bytes.
+  Warning  BackOff    4m24s (x26 over 9m29s)  kubelet            Back-off restarting failed container flask-app in pod crash-demo-84f9684889-vfh46_troubleshooting(3f5bade1-5d63-4804-81e6-d2050425d64f)
+  Normal   Created    3m57s (x7 over 9m31s)   kubelet            Created container: flask-app
+  Normal   Started    3m57s (x7 over 9m31s)   kubelet            Started container flask-app
+  Normal   Pulled     3m57s (x6 over 9m30s)   kubelet            Container image "python:3.9-slim" already present on machine

@@ -1,0 +1,2 @@
+NAME                          READY   STATUS             RESTARTS        AGE
+crash-demo-84f9684889-vfh46   0/1     CrashLoopBackOff   6 (2m33s ago)   8m15s

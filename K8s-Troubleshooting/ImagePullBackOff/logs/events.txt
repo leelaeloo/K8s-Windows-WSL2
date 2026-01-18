@@ -1,0 +1,9 @@
+LAST SEEN   TYPE      REASON              OBJECT                                      MESSAGE
+14m         Normal    Scheduled           pod/imagepull-error-demo-7f4c89546-9fdd5    Successfully assigned troubleshooting/imagepull-error-demo-7f4c89546-9fdd5 to minikube
+14m         Normal    SuccessfulCreate    replicaset/imagepull-error-demo-7f4c89546   Created pod: imagepull-error-demo-7f4c89546-9fdd5
+14m         Normal    ScalingReplicaSet   deployment/imagepull-error-demo             Scaled up replica set imagepull-error-demo-7f4c89546 from 0 to 1
+11m         Normal    Pulling             pod/imagepull-error-demo-7f4c89546-9fdd5    Pulling image "nginx:this-tag-does-not-exist"
+11m         Warning   Failed              pod/imagepull-error-demo-7f4c89546-9fdd5    Failed to pull image "nginx:this-tag-does-not-exist": Error response from daemon: manifest for nginx:this-tag-does-not-exist not found: manifest unknown: manifest unknown
+11m         Warning   Failed              pod/imagepull-error-demo-7f4c89546-9fdd5    Error: ErrImagePull
+4m34s       Normal    BackOff             pod/imagepull-error-demo-7f4c89546-9fdd5    Back-off pulling image "nginx:this-tag-does-not-exist"
+4m21s       Warning   Failed              pod/imagepull-error-demo-7f4c89546-9fdd5    Error: ImagePullBackOff

@@ -1,0 +1,55 @@
+Name:             imagepull-error-demo-7f4c89546-9fdd5
+Namespace:        troubleshooting
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Sun, 02 Nov 2025 12:28:57 +0900
+Labels:           app=imagepull-demo
+                  pod-template-hash=7f4c89546
+Annotations:      <none>
+Status:           Pending
+IP:               10.244.0.41
+IPs:
+  IP:           10.244.0.41
+Controlled By:  ReplicaSet/imagepull-error-demo-7f4c89546
+Containers:
+  nginx:
+    Container ID:   
+    Image:          nginx:this-tag-does-not-exist
+    Image ID:       
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Waiting
+      Reason:       ImagePullBackOff
+    Ready:          False
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-4kcgg (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-4kcgg:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                   From               Message
+  ----     ------     ----                  ----               -------
+  Normal   Scheduled  12m                   default-scheduler  Successfully assigned troubleshooting/imagepull-error-demo-7f4c89546-9fdd5 to minikube
+  Normal   Pulling    9m46s (x5 over 12m)   kubelet            Pulling image "nginx:this-tag-does-not-exist"
+  Warning  Failed     9m43s (x5 over 12m)   kubelet            Failed to pull image "nginx:this-tag-does-not-exist": Error response from daemon: manifest for nginx:this-tag-does-not-exist not found: manifest unknown: manifest unknown
+  Warning  Failed     9m43s (x5 over 12m)   kubelet            Error: ErrImagePull
+  Normal   BackOff    2m46s (x40 over 12m)  kubelet            Back-off pulling image "nginx:this-tag-does-not-exist"
+  Warning  Failed     2m33s (x41 over 12m)  kubelet            Error: ImagePullBackOff
