@@ -118,5 +118,5 @@ K8s-Windows-WSL2/
 ## Goal
 
 ```
-[ ] CKA (Certified Kubernetes Administrator) 준비 중
+[ ] CKA (Certified Kubernetes Administrator) 취득 준비 중
 ```
