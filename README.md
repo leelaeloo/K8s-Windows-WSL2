@@ -108,7 +108,7 @@ K8s-Windows-WSL2/
 
 ## Related
 
-- [MovieSir 프로젝트](https://github.com/leelaeloo) - 실제 운영 중인 인프라 프로젝트
+- [MovieSir 프로젝트](https://github.com/Movigation) - 실제 운영 중인 인프라 프로젝트
 - [클라우드 인프라 구축기](https://velog.io/@leelaeloo) - 기술 블로그
 
 ---
@@ -116,5 +116,5 @@ K8s-Windows-WSL2/
 ## Goal
 
 ```
-[ ] CKA (Certified Kubernetes Administrator) 취득
+[ ] CKA (Certified Kubernetes Administrator) 취득 준비 중
 ```
